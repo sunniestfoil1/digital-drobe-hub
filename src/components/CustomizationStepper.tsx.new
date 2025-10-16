@@ -1,0 +1,216 @@
+import { useState } from "react";
+import { Button } from "./ui/button";
+import { Card } from "./ui/card";
+
+const ESTILOS_CABELO = [
+  {
+    id: "cabelo-1",
+    nome: "Longo Liso",
+    imagem: "/placeholder-cabelo-1.jpg"
+  },
+  {
+    id: "cabelo-2",
+    nome: "Curto Cacheado",
+    imagem: "/placeholder-cabelo-2.jpg"
+  },
+  {
+    id: "cabelo-3",
+    nome: "Médio Ondulado",
+    imagem: "/placeholder-cabelo-3.jpg"
+  },
+  {
+    id: "cabelo-4",
+    nome: "Pixie Cut",
+    imagem: "/placeholder-cabelo-4.jpg"
+  },
+  {
+    id: "cabelo-5",
+    nome: "Corte Bob",
+    imagem: "/placeholder-cabelo-5.jpg"
+  },
+];
+
+const ESTILOS_ROUPA = [
+  {
+    id: "roupa-1",
+    nome: "Casual",
+    imagem: "/placeholder-roupa-1.jpg"
+  },
+  {
+    id: "roupa-2",
+    nome: "Formal",
+    imagem: "/placeholder-roupa-2.jpg"
+  },
+  {
+    id: "roupa-3",
+    nome: "Esportivo",
+    imagem: "/placeholder-roupa-3.jpg"
+  },
+  {
+    id: "roupa-4",
+    nome: "Vintage",
+    imagem: "/placeholder-roupa-4.jpg"
+  },
+  {
+    id: "roupa-5",
+    nome: "Boho",
+    imagem: "/placeholder-roupa-5.jpg"
+  },
+];
+
+const CENARIOS = [
+  {
+    id: "cenario-1",
+    nome: "Cidade Urbana",
+    imagem: "/placeholder-cenario-1.jpg"
+  },
+  {
+    id: "cenario-2",
+    nome: "Parque Natural",
+    imagem: "/placeholder-cenario-2.jpg"
+  },
+  {
+    id: "cenario-3",
+    nome: "Pôr do Sol na Praia",
+    imagem: "/placeholder-cenario-3.jpg"
+  },
+  {
+    id: "cenario-4",
+    nome: "Estúdio",
+    imagem: "/placeholder-cenario-4.jpg"
+  },
+  {
+    id: "cenario-5",
+    nome: "Abstrato",
+    imagem: "/placeholder-cenario-5.jpg"
+  },
+];
+
+export function CustomizationStepper() {
+  const [etapa, setEtapa] = useState(1);
+  const [selecoes, setSelecoes] = useState({
+    cabelo: "",
+    roupa: "",
+    cenario: "",
+  });
+
+  const handleSelecao = (id: string, tipo: "cabelo" | "roupa" | "cenario") => {
+    setSelecoes((prev) => ({
+      ...prev,
+      [tipo]: id,
+    }));
+  };
+
+  const handleProximo = () => {
+    if (etapa < 3) setEtapa((prev) => prev + 1);
+  };
+
+  const handleVoltar = () => {
+    if (etapa > 1) setEtapa((prev) => prev - 1);
+  };
+
+  const handleFinalizar = () => {
+    // TODO: Implementar submissão final
+    console.log("Seleções finais:", selecoes);
+  };
+
+  const renderOpcoes = (
+    opcoes: Array<{ id: string; nome: string; imagem: string }>,
+    tipo: "cabelo" | "roupa" | "cenario"
+  ) => {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {opcoes.map((opcao) => (
+          <Card
+            key={opcao.id}
+            className={`p-4 cursor-pointer transition-all hover:scale-105 ${
+              selecoes[tipo] === opcao.id
+                ? "ring-2 ring-primary"
+                : "hover:ring-1 hover:ring-primary/50"
+            }`}
+            onClick={() => handleSelecao(opcao.id, tipo)}
+          >
+            <div className="aspect-video bg-muted rounded-md mb-2">
+              {/* Placeholder para imagem */}
+              <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                Imagem {opcao.nome}
+              </div>
+            </div>
+            <h4 className="font-medium text-center">{opcao.nome}</h4>
+          </Card>
+        ))}
+      </div>
+    );
+  };
+
+  return (
+    <Card className="p-6 w-full max-w-4xl mx-auto">
+      <div className="mb-6">
+        <div className="flex justify-between items-center mb-8">
+          {[1, 2, 3].map((numero) => (
+            <div
+              key={numero}
+              className={`flex flex-col items-center ${
+                etapa === numero ? "text-primary" : "text-muted-foreground"
+              }`}
+            >
+              <div
+                className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
+                  etapa >= numero
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted text-muted-foreground"
+                }`}
+              >
+                {numero}
+              </div>
+              <span className="text-sm">
+                {numero === 1
+                  ? "Cabelo"
+                  : numero === 2
+                  ? "Roupa"
+                  : "Cenário"}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div className="space-y-6">
+          {etapa === 1 && (
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-center mb-6">Escolha o Estilo do Cabelo</h3>
+              {renderOpcoes(ESTILOS_CABELO, "cabelo")}
+            </div>
+          )}
+
+          {etapa === 2 && (
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-center mb-6">Escolha o Estilo da Roupa</h3>
+              {renderOpcoes(ESTILOS_ROUPA, "roupa")}
+            </div>
+          )}
+
+          {etapa === 3 && (
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-center mb-6">Escolha o Cenário</h3>
+              {renderOpcoes(CENARIOS, "cenario")}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="flex justify-between mt-8">
+        <Button
+          variant="outline"
+          onClick={handleVoltar}
+          disabled={etapa === 1}
+        >
+          Voltar
+        </Button>
+        {etapa < 3 ? (
+          <Button onClick={handleProximo}>Próximo</Button>
+        ) : (
+          <Button onClick={handleFinalizar}>Finalizar</Button>
+        )}
+      </div>
+    </Card>
+  );
