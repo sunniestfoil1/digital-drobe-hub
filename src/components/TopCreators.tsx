@@ -1,6 +1,6 @@
-import creator1 from '@/assets/creator-1.jpg';
-import creator2 from '@/assets/creator-2.jpg';
-import creator3 from '@/assets/creator-3.jpg';
+import creator1 from '/assets/creator-1.jpg';
+import creator2 from '/assets/creator-2.jpg';
+import creator3 from '/assets/creator-3.jpg';
 
 interface CreatorCardProps {
   image: string;

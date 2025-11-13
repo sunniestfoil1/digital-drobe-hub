@@ -12,17 +12,17 @@ const ESTILOS_CABELO = [
   {
     id: "cabelo-2",
     nome: "Médio Ondulado",
-    imagem: "@/assets/1/estilo_do_cabelo_medio_ondulado_pixel_art.jpeg"
+    imagem: "/assets/1/estilo_do_cabelo_medio_ondulado_pixel_art.jpeg"
   },
   {
     id: "cabelo-3",
     nome: "Pixie Cut",
-    imagem: "@/assets/1/estilo_do_cabelo_pixie_cut_pixel_art.jpeg"
+    imagem: "/assets/1/estilo_do_cabelo_pixie_cut_pixel_art.jpeg"
   },
   {
     id: "cabelo-4",
     nome: "Corte Bob",
-    imagem: "@/assets/1/cabelo_estilo_bob_pixel_art_somente_o.jpeg"
+    imagem: "/assets/1/cabelo_estilo_bob_pixel_art_somente_o.jpeg"
   }
 ];
 
@@ -30,22 +30,22 @@ const ESTILOS_ROUPA = [
   {
     id: "roupa-1",
     nome: "Casual",
-    imagem: "@/assets/2/roupa_tecnologica_estilo_casual_pixel_art_somente.jpeg"
+    imagem: "/assets/2/roupa_tecnologica_estilo_casual_pixel_art_somente.jpeg"
   },
   {
     id: "roupa-2",
     nome: "Formal",
-    imagem: "@/assets/2/roupa_tecnologica_estilo_formal_pixel_art_somente.jpeg"
+    imagem: "/assets/2/roupa_tecnologica_estilo_formal_pixel_art_somente.jpeg"
   },
   {
     id: "roupa-3",
     nome: "Esportivo",
-    imagem: "@/assets/2/roupa_tecnologica_estilo_esportivo_pixel_art_somente.jpeg"
+    imagem: "/assets/2/roupa_tecnologica_estilo_esportivo_pixel_art_somente.jpeg"
   },
   {
     id: "roupa-4",
     nome: "Boho",
-    imagem: "@/assets/2/roupa_tecnologica_estilo_boho_pixel_art_somente.jpeg"
+    imagem: "/assets/2/roupa_tecnologica_estilo_boho_pixel_art_somente.jpeg"
   }
 ];
 
@@ -53,27 +53,27 @@ const CENARIOS = [
   {
     id: "cenario-1",
     nome: "Área Rural",
-    imagem: "@/assets/3/fundo_de_uma_area_rural.jpeg"
+    imagem: "/assets/3/fundo_de_uma_area_rural.jpeg"
   },
   {
     id: "cenario-2",
     nome: "Parque Natural",
-    imagem: "@/assets/3/fundo_de_um_parque_natural_no_brasil.jpeg"
+    imagem: "/assets/3/fundo_de_um_parque_natural_no_brasil.jpeg"
   },
   {
     id: "cenario-3",
     nome: "Pôr do Sol",
-    imagem: "@/assets/3/fundo_de_um_por_do_sol_na.jpeg"
+    imagem: "/assets/3/fundo_de_um_por_do_sol_na.jpeg"
   },
   {
     id: "cenario-4",
     nome: "Estúdio Tech",
-    imagem: "@/assets/3/fundo_de_um_estudio_de_tecnologia_estilo.jpeg"
+    imagem: "/assets/3/fundo_de_um_estudio_de_tecnologia_estilo.jpeg"
   },
   {
     id: "cenario-5",
     nome: "Abstrato",
-    imagem: "@/assets/3/fundo_de_um_abstrato_pixelart.jpeg"
+    imagem: "/assets/3/fundo_de_um_abstrato_pixelart.jpeg"
   }
 ];
 
